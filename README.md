@@ -7,7 +7,8 @@ the Nit in the browser), its **workflow stage**, the **git branch** (flagged
 in red with ⚠ when the checkout isn't on the Nit's branch), and a
 **branch-status glyph** (✓ clean · ● dirty · ↑/↓/↕ ahead/behind/diverged).
 
-Private team mod — installed by cloning this repo, not from herdr.dev/mods
+Public repo, but intentionally **not listed on herdr.dev/mods** (no
+`herdr-mod` topic) — install it by cloning this repo
 (see [Install](#install)).
 
 ![LiCE Pane Header](preview.png)
@@ -17,8 +18,8 @@ header and shows no strip.
 
 ## Install
 
-This is a private mod — it is **not** published to herdr.dev/mods. Install it
-straight from this repo:
+This mod is **not** listed on herdr.dev/mods (by design — no `herdr-mod`
+topic). Install it straight from this repo:
 
 ```sh
 # 1. Get the mod into your Herdr mods folder (clone anywhere, then copy the folder in):
@@ -51,10 +52,10 @@ Edit `~/.config/herdr-app/layouts/lice.json` and set the tab block's
 `layout.clone` switches to the new layout; `ctrl-shift-l` cycles back to
 `main`. The `lice` layout is yours and survives restarts.
 
-> Note for whoever sets up the GitHub repo: leave the `herdr-mod` topic OFF
-> so it stays private to the team and doesn't surface on herdr.dev/mods. The
-> mod installs the same either way — the topic only controls the public
-> directory listing.
+> Keep the `herdr-mod` topic OFF this repo: that topic is the only thing that
+> lists a repo on herdr.dev/mods. Without it the repo is public and cloneable
+> but never surfaces in the Herdr directory. The mod installs the same either
+> way — the topic only controls the public listing.
 
 ## What it reads (and runs)
 
