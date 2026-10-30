@@ -1,0 +1,7 @@
+# Per-install type stubs the app rewrites on every start — never share these.
+gpui-kit.d.ts
+herdr.d.ts
+jsconfig.json
+
+# Local screenshots
+preview-full.png
