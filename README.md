@@ -7,6 +7,9 @@ the Nit in the browser), its **workflow stage**, the **git branch** (flagged
 in red with ⚠ when the checkout isn't on the Nit's branch), and a
 **branch-status glyph** (✓ clean · ● dirty · ↑/↓/↕ ahead/behind/diverged).
 
+Private team mod — installed by cloning this repo, not from herdr.dev/mods
+(see [Install](#install)).
+
 ![LiCE Pane Header](preview.png)
 
 Outside a LiCE project the header behaves exactly like Herdr's shipped `pane`
@@ -14,17 +17,44 @@ header and shows no strip.
 
 ## Install
 
-1. Copy `mods/lice-pane/` into `~/.config/herdr-app/mods/`.
-2. Check it: `herdr-app check ~/.config/herdr-app/mods/lice-pane`.
-3. Use it in a layout's pane frame. The shipped layouts are read-only, so
-   clone one and point its pane header at the mod:
-   ```sh
-   herdr-app do layout.clone '{"name":"main","as":"lice"}'
-   ```
-   then in `~/.config/herdr-app/layouts/lice.json` set the tab block's
-   `pane.header.content.mod` to `"lice-pane"`.
-4. `ctrl-shift-l` cycles layouts; the `lice` layout is yours and survives
-   restarts.
+This is a private mod — it is **not** published to herdr.dev/mods. Install it
+straight from this repo:
+
+```sh
+# 1. Get the mod into your Herdr mods folder (clone anywhere, then copy the folder in):
+git clone <this-repo-url> /tmp/herdr-lice-pane
+cp -R /tmp/herdr-lice-pane/mods/lice-pane ~/.config/herdr-app/mods/
+
+# 2. Check it loads:
+herdr-app check ~/.config/herdr-app/mods/lice-pane
+```
+
+Or, if you keep a checkout of this repo, symlink it so `git pull` updates the
+mod in place:
+
+```sh
+git clone <this-repo-url> ~/src/herdr-lice-pane
+ln -s ~/src/herdr-lice-pane/mods/lice-pane ~/.config/herdr-app/mods/lice-pane
+herdr-app check ~/.config/herdr-app/mods/lice-pane
+```
+
+Then use it in a layout's pane frame. The shipped layouts are read-only, so
+clone one and point its pane header at the mod:
+
+```sh
+herdr-app do layout.clone '{"name":"main","as":"lice"}'
+```
+
+Edit `~/.config/herdr-app/layouts/lice.json` and set the tab block's
+`pane.header.content.mod` to `"lice-pane"` (it's under
+`children → work → work-body → main → content → pane → header → content`).
+`layout.clone` switches to the new layout; `ctrl-shift-l` cycles back to
+`main`. The `lice` layout is yours and survives restarts.
+
+> Note for whoever sets up the GitHub repo: leave the `herdr-mod` topic OFF
+> so it stays private to the team and doesn't surface on herdr.dev/mods. The
+> mod installs the same either way — the topic only controls the public
+> directory listing.
 
 ## What it reads (and runs)
 
